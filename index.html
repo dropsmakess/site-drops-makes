@@ -1,148 +1,96 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drops Makes ☂️</title>
   <style>
     body {
-      background-color: #0e0e0e;
+      font-family: Arial, sans-serif;
+      background-color: #150f3c; /* roxo escuro */
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #1a1a1a;
-      padding: 20px;
+      background-color: #3b2a6d; /* roxo escuro */
+      padding: 1rem;
       text-align: center;
     }
-    header h1 {
-      color: #a259ff;
-      font-size: 2.5rem;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .product {
-      background-color: #1f1f1f;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 0 12px #a259ff30;
-    }
-    .product h2 {
-      color: #a259ff;
-    }
-    .product p {
-      margin: 10px 0;
-      color: #bbb;
-    }
-    .buy-button {
-      background-color: #a259ff;
-      border: none;
-      padding: 12px 24px;
-      color: white;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .buy-button:hover {
-      background-color: #8e45e6;
-    }
-    /* Estilo do botão do WhatsApp */
-    .whatsapp-btn {
+    header img {
+      max-width: 100%;
+      height: auto;
       display: block;
-      background-color: #25D366; /* Cor de fundo do WhatsApp */
+      margin: 0 auto;
+    }
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .produto {
+      background-color: #2e2e40;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .produto h3 {
+      margin: 0.5rem 0;
+    }
+    .produto p {
+      margin: 0.5rem 0 1rem 0;
+    }
+    .produto button {
+      background-color: #4b3782;
       color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 50%;
+      font-size: 2rem;
       text-align: center;
       text-decoration: none;
-      font-size: 1rem;
-      width: 200px;
-      margin: 30px auto; /* Alinhamento centralizado */
-    }
-    .whatsapp-btn:hover {
-      background-color: #128C7E; /* Cor de fundo quando passar o mouse */
-    }
-    /* Estilo do ícone do WhatsApp */
-    .whatsapp-btn i {
-      margin-right: 8px; /* Espaçamento entre o ícone e o texto */
     }
   </style>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Drops Makes ☂️</h1>
-    <p>Compre seus packs e produtos Fortnite com segurança!</p>
-  </header>
-
-  <section>
-    <div class="product">
-      <h2>Pack Solo – R$25,00</h2>
-      <p>Adquira o Pack Solo e tenha acesso a um conteúdo exclusivo para você arrasar no Fortnite. Ideal para jogadores solo que querem se destacar.</p>
-      <a class="buy-button" href="https://pag.ae/7_DTfjXEw" target="_blank">Comprar</a>
+ 
+  <section class="produtos">
+    <div class="produto">
+      <h3>God Glider</h3>
+      <p>R$ 17,00 - Um planador poderoso para dominar o jogo.</p>
+      <button onclick="alert('Pagamento via PIX - God Glider: R$17,00')">Pagar com PIX</button>
     </div>
-    <div class="product">
-      <h2>Pack Trio Básico – R$30,00</h2>
-      <p>Junte seus amigos e adquira o Pack Trio Básico. Uma ótima escolha para quem quer jogar em grupo e melhorar sua performance no jogo!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTnov9v" target="_blank">Comprar</a>
+    <div class="produto">
+      <h3>Rota de Loot</h3>
+      <p>R$ 14,99 - Melhore sua rota para pegar os melhores itens.</p>
+      <button onclick="alert('Pagamento via PIX - Rota de Loot: R$14,99')">Pagar com PIX</button>
     </div>
-    <div class="product">
-      <h2>Pack Trio Avançado – R$45,00</h2>
-      <p>Para quem já domina o jogo! O Pack Trio Avançado oferece vantagens incríveis para você e sua equipe arrasarem nas partidas.</p>
-      <a class="buy-button" href="https://pag.ae/7_DTn564w" target="_blank">Comprar</a>
+    <div class="produto">
+      <h3>Estratégias / Meta</h3>
+      <p>R$ 18,99 - Estratégias avançadas para subir no ranking.</p>
+      <button onclick="alert('Pagamento via PIX - Estratégias / Meta: R$18,99')">Pagar com PIX</button>
     </div>
-    <div class="product">
-      <h2>Pack Trio Coacheado – R$80,00</h2>
-      <p>Com o Pack Trio Coacheado, você e sua equipe receberão dicas e estratégias de um coach especializado para dominar o Fortnite!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTigG-v" target="_blank">Comprar</a>
+    <div class="produto">
+      <h3>Pack Solo</h3>
+      <p>R$ 29,99 - Conteúdo completo para jogar sozinho e evoluir rápido.</p>
+      <button onclick="alert('Pagamento via PIX - Pack Solo: R$29,99')">Pagar com PIX</button>
     </div>
-    <div class="product">
-      <h2>God Glider – R$15,90</h2>
-      <p>Adicione um toque de estilo ao seu jogo com o God Glider. Um item exclusivo para quem quer arrasar nas alturas do Fortnite!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTkaicQ" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h2>Rota de Loot – R$15,00</h2>
-      <p>Descubra as melhores rotas de loot para garantir que você sempre esteja preparado para os desafios. Tenha uma vantagem nas suas partidas!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTkZ-gb" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h2>Estratégias – R$17,00</h2>
-      <p>Saiba como se posicionar, atacar e defender com as melhores estratégias para se dar bem em qualquer partida. Um item essencial para melhorar suas habilidades!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTnKq19" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h2>2 God Gliders – R$30,00</h2>
-      <p>Compre 2 God Gliders e leve ainda mais estilo para o seu jogo. Mostre aos seus adversários quem é que manda no céu!</p>
-      <a class="buy-button" href="https://pag.ae/7_DToiDbb" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h2>Rota de Loot + God Glider – R$25,00</h2>
-      <p>Compre a combinação perfeita: a melhor rota de loot + o exclusivo God Glider. Prepare-se para voar alto e garantir as melhores armas!</p>
-      <a class="buy-button" href="https://pag.ae/7_DToTjr1" target="_blank">Comprar</a>
-    </div>
-    <div class="product">
-      <h2>Rota + Glider + Estratégias – R$44,90</h2>
-      <p>Essa combinação vai transformar o seu jogo! Adquira a Rota de Loot, o God Glider e as melhores Estratégias para se tornar um verdadeiro campeão!</p>
-      <a class="buy-button" href="https://pag.ae/7_DTprcwa" target="_blank">Comprar</a>
-    </div>
+    <!-- Adicione mais produtos conforme desejar -->
   </section>
 
-  <!-- Botão do WhatsApp -->
-  <a href="https://wa.me/5531996378666" target="_blank" class="whatsapp-btn">
-    <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
-  </a>
-
+  <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp">💬</a>
 </body>
 </html>
