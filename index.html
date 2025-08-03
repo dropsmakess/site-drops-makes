@@ -2,95 +2,305 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Drops Makes ☂️</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #150f3c; /* roxo escuro */
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #3b2a6d; /* roxo escuro */
-      padding: 1rem;
-      text-align: center;
-    }
-    header img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-    .produtos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-    }
-    .produto {
-      background-color: #2e2e40;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .produto h3 {
-      margin: 0.5rem 0;
-    }
-    .produto p {
-      margin: 0.5rem 0 1rem 0;
-    }
-    .produto button {
-      background-color: #4b3782;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      padding: 0.8rem;
-      border-radius: 50%;
-      font-size: 2rem;
-      text-align: center;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loja Drops Makes - Login e Painel</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #eee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #6200ea;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  main {
+    flex: 1;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Containers */
+  #loginContainer, #userContainer, #adminContainer {
+    background: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #6200eaaa;
+    width: 100%;
+    max-width: 600px;
+    margin: 3rem auto 0;
+    text-align: center;
+    color: #eee;
+  }
+  #loginContainer input[type="email"], #adminContainer input[type="text"], #adminContainer input[type="number"] {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: none;
+    background: #bb86fc;
+    color: #121212;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 1rem;
+  }
+  button:hover {
+    background: #9a67ea;
+    color: white;
+  }
+  #errorMsg {
+    color: #ff5252;
+    margin-bottom: 1rem;
+    display: none;
+  }
+
+  /* Produtos */
+  .produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .produto {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #6200ea50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .produto h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    color: #bb86fc;
+  }
+  .preco {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #03dac6;
+  }
+  .btn-comprar {
+    background-color: #bb86fc;
+    border: none;
+    color: #121212;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-comprar:hover {
+    background-color: #9a67ea;
+    color: white;
+  }
+
+  /* Admin - lista produtos */
+  #adminProductsList {
+    margin-top: 2rem;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  #adminProductsList .produto {
+    background: #3b3b3b;
+    margin-bottom: 1rem;
+  }
+</style>
 </head>
 <body>
- 
-  <section class="produtos">
-    <div class="produto">
-      <h3>God Glider</h3>
-      <p>R$ 17,00 - Um planador poderoso para dominar o jogo.</p>
-      <button onclick="alert('Pagamento via PIX - God Glider: R$17,00')">Pagar com PIX</button>
-    </div>
-    <div class="produto">
-      <h3>Rota de Loot</h3>
-      <p>R$ 14,99 - Melhore sua rota para pegar os melhores itens.</p>
-      <button onclick="alert('Pagamento via PIX - Rota de Loot: R$14,99')">Pagar com PIX</button>
-    </div>
-    <div class="produto">
-      <h3>Estratégias / Meta</h3>
-      <p>R$ 18,99 - Estratégias avançadas para subir no ranking.</p>
-      <button onclick="alert('Pagamento via PIX - Estratégias / Meta: R$18,99')">Pagar com PIX</button>
-    </div>
-    <div class="produto">
-      <h3>Pack Solo</h3>
-      <p>R$ 29,99 - Conteúdo completo para jogar sozinho e evoluir rápido.</p>
-      <button onclick="alert('Pagamento via PIX - Pack Solo: R$29,99')">Pagar com PIX</button>
-    </div>
-    <!-- Adicione mais produtos conforme desejar -->
-  </section>
+<header>Loja Drops Makes</header>
+<main>
 
-  <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp">💬</a>
+  <!-- Login -->
+  <div id="loginContainer">
+    <h1>Login</h1>
+    <input type="email" id="emailInput" placeholder="Digite seu email" autocomplete="off" />
+    <div id="errorMsg"></div>
+    <button onclick="login()">Entrar</button>
+  </div>
+
+  <!-- Usuário Normal -->
+  <div id="userContainer" style="display:none;">
+    <h1>Produtos Disponíveis</h1>
+    <button onclick="logout()">Sair</button>
+    <section class="produtos" id="produtosSection"></section>
+  </div>
+
+  <!-- Painel Admin -->
+  <div id="adminContainer" style="display:none;">
+    <h1>Painel do Admin</h1>
+    <button onclick="logout()">Sair</button>
+
+    <h2>Adicionar Produto</h2>
+    <input type="text" id="prodName" placeholder="Nome do produto" />
+    <input type="number" id="prodPrice" placeholder="Preço (R$)" min="0" step="0.01" />
+    <button onclick="addProduct()">Adicionar Produto</button>
+
+    <h2>Produtos Cadastrados</h2>
+    <div id="adminProductsList"></div>
+  </div>
+
+</main>
+<footer>
+  &copy; 2025 Loja Drops Makes - Todos os direitos reservados
+</footer>
+
+<script>
+  const loginContainer = document.getElementById('loginContainer');
+  const userContainer = document.getElementById('userContainer');
+  const adminContainer = document.getElementById('adminContainer');
+  const errorMsg = document.getElementById('errorMsg');
+  const emailInput = document.getElementById('emailInput');
+  const produtosSection = document.getElementById('produtosSection');
+  const adminProductsList = document.getElementById('adminProductsList');
+
+  const ADMIN_EMAIL = 'ad.admin.com';
+  const NUBANK_LINK = 'https://nubank.com.br/cobrar/b4k9al/688e92b2-c2ea-41c7-9f10-73572977386a';
+
+  // Função para salvar e carregar produtos do localStorage
+  function getProducts() {
+    const prods = localStorage.getItem('produtosDropsMakes');
+    if(prods) return JSON.parse(prods);
+    // Produtos iniciais
+    return [
+      { nome: 'God Glider', preco: 15.00 },
+      { nome: 'Rota de Loot', preco: 17.00 },
+      { nome: 'Estratégias do Meta', preco: 20.00 },
+      { nome: '3 VODs', preco: 35.00 },
+      { nome: '5 VODs', preco: 50.00 },
+      { nome: '10 VODs (um campeonato todo)', preco: 100.00 },
+      { nome: 'God + Rota', preco: 30.00 },
+      { nome: 'God + Estratégias', preco: 33.00 },
+      { nome: 'Rota + Estratégias', preco: 35.00 },
+      { nome: '3 VODs + God', preco: 45.00 },
+      { nome: '5 VODs + God', preco: 55.99 },
+      { nome: '10 VODs + God', preco: 110.00 },
+      { nome: 'Rotina de Treino (com de acordo que você precise)', preco: 25.00 },
+    ];
+  }
+
+  function saveProducts(products) {
+    localStorage.setItem('produtosDropsMakes', JSON.stringify(products));
+  }
+
+  // Renderiza produtos para usuário normal
+  function renderProducts() {
+    const products = getProducts();
+    produtosSection.innerHTML = '';
+    products.forEach(({nome, preco}) => {
+      const div = document.createElement('div');
+      div.className = 'produto';
+      div.innerHTML = `
+        <h3>${nome}</h3>
+        <div class="preco">R$ ${preco.toFixed(2).replace('.', ',')}</div>
+        <a href="${NUBANK_LINK}" target="_blank" class="btn-comprar">Comprar</a>
+      `;
+      produtosSection.appendChild(div);
+    });
+  }
+
+  // Renderiza produtos no painel admin com opção de remover
+  function renderAdminProducts() {
+    const products = getProducts();
+    adminProductsList.innerHTML = '';
+    if(products.length === 0) {
+      adminProductsList.textContent = 'Nenhum produto cadastrado.';
+      return;
+    }
+    products.forEach(({nome, preco}, idx) => {
+      const div = document.createElement('div');
+      div.className = 'produto';
+      div.innerHTML = `
+        <h3>${nome}</h3>
+        <div class="preco">R$ ${preco.toFixed(2).replace('.', ',')}</div>
+        <button onclick="removeProduct(${idx})" style="background:#ff5252;">Remover</button>
+      `;
+      adminProductsList.appendChild(div);
+    });
+  }
+
+  function login() {
+    const email = emailInput.value.trim().toLowerCase();
+    if(email === '') {
+      errorMsg.textContent = 'Por favor, insira um email.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+    loginContainer.style.display = 'none';
+
+    if(email === ADMIN_EMAIL) {
+      // Admin
+      adminContainer.style.display = 'block';
+      userContainer.style.display = 'none';
+      renderAdminProducts();
+    } else {
+      // Usuário normal
+      userContainer.style.display = 'block';
+      adminContainer.style.display = 'none';
+      renderProducts();
+    }
+  }
+
+  function logout() {
+    emailInput.value = '';
+    errorMsg.style.display = 'none';
+    loginContainer.style.display = 'block';
+    userContainer.style.display = 'none';
+    adminContainer.style.display = 'none';
+  }
+
+  function addProduct() {
+    const nome = document.getElementById('prodName').value.trim();
+    const precoStr = document.getElementById('prodPrice').value.trim();
+    const preco = parseFloat(precoStr);
+    if(nome === '' || isNaN(preco) || preco < 0) {
+      alert('Informe um nome válido e preço maior ou igual a zero.');
+      return;
+    }
+    const products = getProducts();
+    products.push({ nome, preco });
+    saveProducts(products);
+    document.getElementById('prodName').value = '';
+    document.getElementById('prodPrice').value = '';
+    renderAdminProducts();
+  }
+
+  function removeProduct(index) {
+    if(!confirm('Remover este produto?')) return;
+    const products = getProducts();
+    products.splice(index, 1);
+    saveProducts(products);
+    renderAdminProducts();
+  }
+</script>
 </body>
 </html>
