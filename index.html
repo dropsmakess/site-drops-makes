@@ -33,7 +33,6 @@
     width: 100%;
   }
 
-  /* Containers */
   #loginContainer, #userContainer, #adminContainer {
     background: #1e1e1e;
     padding: 2rem;
@@ -77,7 +76,6 @@
     display: none;
   }
 
-  /* Produtos */
   .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
@@ -123,7 +121,6 @@
     color: white;
   }
 
-  /* Admin - lista produtos */
   #adminProductsList {
     margin-top: 2rem;
     max-height: 300px;
@@ -185,11 +182,9 @@
   const ADMIN_EMAIL = 'ad.admin.com';
   const NUBANK_LINK = 'https://nubank.com.br/cobrar/b4k9al/688e92b2-c2ea-41c7-9f10-73572977386a';
 
-  // Função para salvar e carregar produtos do localStorage
   function getProducts() {
-    const prods = localStorage.getItem('produtosDropsMakes');
+    const prods = localStorage.getItem('produtosMV_Drops');
     if(prods) return JSON.parse(prods);
-    // Produtos iniciais
     return [
       { nome: 'God Glider', preco: 15.00 },
       { nome: 'Rota de Loot', preco: 17.00 },
@@ -204,14 +199,14 @@
       { nome: '5 VODs + God', preco: 55.99 },
       { nome: '10 VODs + God', preco: 110.00 },
       { nome: 'Rotina de Treino (com de acordo que você precise)', preco: 25.00 },
+      { nome: '1 Thumb', preco: 24.00 }
     ];
   }
 
   function saveProducts(products) {
-    localStorage.setItem('produtosMV Drops', JSON.stringify(products));
+    localStorage.setItem('produtosMV_Drops', JSON.stringify(products));
   }
 
-  // Renderiza produtos para usuário normal
   function renderProducts() {
     const products = getProducts();
     produtosSection.innerHTML = '';
@@ -227,7 +222,6 @@
     });
   }
 
-  // Renderiza produtos no painel admin com opção de remover
   function renderAdminProducts() {
     const products = getProducts();
     adminProductsList.innerHTML = '';
@@ -258,12 +252,10 @@
     loginContainer.style.display = 'none';
 
     if(email === ADMIN_EMAIL) {
-      // Admin
       adminContainer.style.display = 'block';
       userContainer.style.display = 'none';
       renderAdminProducts();
     } else {
-      // Usuário normal
       userContainer.style.display = 'block';
       adminContainer.style.display = 'none';
       renderProducts();
